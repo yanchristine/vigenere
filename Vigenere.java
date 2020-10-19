@@ -8,12 +8,19 @@ Vigenere Cipher
 
 public class Vigenere {
 
-    public static String vigenere(String text, String keytext, Boolean shift) {
-        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String txt = text.toUpperCase();
-        String key = keytext.toUpperCase();
+    public static String vigenere(String text, String key, Boolean shift) {
         String output = "";
+        text = text.toUpperCase();
 
+        for (int i = 0, j = 0; i < text.length(); i++) {
+            char curr = text.charAt(i);
+            if (shift) {
+                output += (char) ((curr + key.charAt(j) - 2 * 'A') % 26 + 'A');
+            } else {
+                output += (char) ((curr - key.charAt(i % key.length()) + 26) % 26 + 'A');
+            }
+            j = ++j % key.length();
+        }
         return output;
     }
 
@@ -25,5 +32,14 @@ public class Vigenere {
 
         System.out.println(vigenere(text, keytext, shift));
     }
+    
+    /*
+     * Test Case
+     * $ java Vigenere encode HELLOWORLDCYBERSECURITY CHRISTINE
+     * JLCTGPWEPFJPJWKARGWYZBQ
+     *
+     * $ java Vigenere decode JLCTGPWEPFJPJWKARGWYZBQ CHRISTINE
+     * HELLOWORLDCYBERSECURITY
+     */
 
 }
