@@ -11,3 +11,10 @@ Since this is a symmetric key and the operation is just a shift  you only need o
 Your repo should have a makefile such that:
 make run ARGS="encode plaintext key"    
 make run ARGS="decode ciphertext key"    
+
+Own Test Case:
+make run ARGS="encode HELLOWORLDCYBERSECURITY CHRISTINE"
+JLCTGPWEPFJPJWKARGWYZBQ
+
+make run ARGS="decode JLCTGPWEPFJPJWKARGWYZBQ CHRISTINE"
+HELLOWORLDCYBERSECURITY
