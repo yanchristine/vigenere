@@ -32,7 +32,7 @@ public class Vigenere {
 
         System.out.println(vigenere(text, keytext, shift));
     }
-    
+
     /*
      * Test Case
      * $ java Vigenere encode HELLOWORLDCYBERSECURITY CHRISTINE
